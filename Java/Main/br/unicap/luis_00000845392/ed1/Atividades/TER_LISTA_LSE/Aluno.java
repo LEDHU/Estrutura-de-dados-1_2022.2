@@ -1,4 +1,4 @@
-package TER_LISTA_LSE;
+package Java.Main.br.unicap.luis_00000845392.ed1.Atividades.TER_LISTA_LSE;
 
 public class Aluno implements Comparable <Aluno> {
     // Atributos

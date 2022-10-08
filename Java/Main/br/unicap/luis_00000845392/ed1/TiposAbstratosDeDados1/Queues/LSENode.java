@@ -1,4 +1,4 @@
-package TiposAbstratosDeDados1.Queues;
+package Java.Main.br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Queues;
 
 public class LSENode <T>{
     private T info;

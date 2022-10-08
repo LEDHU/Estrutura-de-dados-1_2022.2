@@ -1,4 +1,4 @@
-package TiposAbstratosDeDados1.Stacks;
+package Java.Main.br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Stacks;
 
 public class Stack <T>{
     private LSENode<T> topo;
@@ -14,8 +14,10 @@ public class Stack <T>{
     }
 
     public T pop(){
-        LSENode <T> aux = this.topo = this.topo.getProx();
-        return aux.getInfo();
+        this.topo = this.topo.getProx();
+        if(isEmpty())
+            return null;
+        return this.topo.getInfo();
     }
 
     public T top(){

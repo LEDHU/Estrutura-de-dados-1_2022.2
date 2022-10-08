@@ -1,6 +1,6 @@
-package TiposAbstratosDeDados1.Testes_Fila_Banco;
+package Java.Main.br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Testes.Testes_Fila_Banco;
 
-import TiposAbstratosDeDados1.Queues.Queue;
+import Java.Main.br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Queues.Queue;
 
 import java.util.Scanner;
 
