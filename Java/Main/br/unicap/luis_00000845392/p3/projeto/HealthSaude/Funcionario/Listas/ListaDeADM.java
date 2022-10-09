@@ -1,4 +1,4 @@
-package Java.Main.br.unicap.luis_00000845392.p3.projeto.HealthSaude.Funcionario.Tipos;
+package Java.Main.br.unicap.luis_00000845392.p3.projeto.HealthSaude.Funcionario.Listas;
 
 import Java.Main.br.unicap.luis_00000845392.p3.projeto.HealthSaude.Funcionario.Funcionario;
 
@@ -45,6 +45,13 @@ public class ListaDeADM {
         }
         else
             System.out.println("Funcionario nao encontrado no sistema");
+    }
+
+    public void exibirLista(){
+        int x = adms.size();
+        for(int i = 0; i < x; i++){
+            System.out.println(adms.get(i));
+        }
     }
 
 }

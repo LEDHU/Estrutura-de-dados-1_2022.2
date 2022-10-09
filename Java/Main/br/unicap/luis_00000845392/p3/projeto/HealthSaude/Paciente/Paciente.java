@@ -9,8 +9,8 @@ public class Paciente implements Comparable <Paciente>{
     private String telefone;
     private Date nasc;
 
-    public Paciente(String nome) {
-        this.nome = nome;
+    public Paciente(String cpf) {
+        this.cpf = cpf;
     }
 
     public Paciente(String nome, String cpf, String endereco, String telefone, Date nasc) {

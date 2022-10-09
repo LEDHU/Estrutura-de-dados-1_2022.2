@@ -1,5 +1,6 @@
 package Java.Main.br.unicap.luis_00000845392.p3.projeto.HealthSaude.Funcionario.Tipos;
 
+import Java.Main.br.unicap.luis_00000845392.p3.projeto.HealthSaude.Funcionario.Funcionario;
 import Java.Main.br.unicap.luis_00000845392.p3.projeto.HealthSaude.Paciente.Paciente;
 
 import java.util.ArrayDeque;
@@ -11,6 +12,10 @@ public class Recepcionista {
     public Recepcionista(ArrayDeque<Paciente> pacisMedico, ArrayDeque<Paciente> pacisExame) {
         this.pacisMedico = pacisMedico;
         this.pacisExame = pacisExame;
+    }
+
+    public Recepcionista() {
+
     }
 
     public ArrayDeque<Paciente> getPacisMedico() {
@@ -36,5 +41,6 @@ public class Recepcionista {
     public void addPaciExame(Paciente p){
         pacisExame.add(p);
     }
+
 
 }

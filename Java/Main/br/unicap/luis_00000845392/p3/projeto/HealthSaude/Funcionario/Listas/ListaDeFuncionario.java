@@ -1,4 +1,6 @@
-package Java.Main.br.unicap.luis_00000845392.p3.projeto.HealthSaude.Funcionario;
+package Java.Main.br.unicap.luis_00000845392.p3.projeto.HealthSaude.Funcionario.Listas;
+
+import Java.Main.br.unicap.luis_00000845392.p3.projeto.HealthSaude.Funcionario.Funcionario;
 
 import java.util.ArrayList;
 
@@ -44,5 +46,11 @@ public class ListaDeFuncionario {
         }
         else
             System.out.println("Funcionario nao encontrado no sistema");
+    }
+
+    public void exibirLista(){
+        for (Funcionario funcionario : funcionarios) {
+            System.out.println(funcionario);
+        }
     }
 }

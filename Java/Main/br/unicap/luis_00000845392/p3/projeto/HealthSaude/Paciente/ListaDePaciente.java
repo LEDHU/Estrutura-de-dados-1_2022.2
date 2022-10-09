@@ -49,4 +49,9 @@ public class ListaDePaciente {
         else
             System.out.println("Paciente nao encontrado no sistema");
     }
+    public void exibirLista(){
+        for (Paciente paciente : pacientes) {
+            System.out.println(paciente);
+        }
+    }
 }
