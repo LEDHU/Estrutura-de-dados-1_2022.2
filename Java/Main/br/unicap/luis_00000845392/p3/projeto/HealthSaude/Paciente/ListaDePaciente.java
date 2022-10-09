@@ -3,10 +3,11 @@ package Java.Main.br.unicap.luis_00000845392.p3.projeto.HealthSaude.Paciente;
 import java.util.ArrayList;
 
 public class ListaDePaciente {
+    private int qtd = 0;
     private ArrayList<Paciente> pacientes;
 
-    public ListaDePaciente(ArrayList<Paciente> pacientes) {
-        this.pacientes = pacientes;
+    public ListaDePaciente() {
+        this.pacientes = new ArrayList<>();
     }
 
     public ArrayList<Paciente> getPacientes() {
@@ -19,7 +20,8 @@ public class ListaDePaciente {
 
     public void addPaciente(Paciente p){
         if(buscar(p) == null){
-            pacientes.add(p);
+            pacientes.add(this.qtd,p);
+            this.qtd++;
             System.out.println("Paciente adicionado ao sistema");
         }
         else
@@ -42,6 +44,7 @@ public class ListaDePaciente {
         if(buscar(p) != null){
             pacientes.remove(p);
             System.out.println("Paciente removido do sistema");
+            this.qtd--;
         }
         else
             System.out.println("Paciente nao encontrado no sistema");

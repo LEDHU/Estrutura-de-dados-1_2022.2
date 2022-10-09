@@ -6,16 +6,6 @@ import java.util.ArrayDeque;
 
 public class Medico extends Recepcionista{
 
-    private String especialidade;
-
-    public String getEspecialidade() {
-        return especialidade;
-    }
-
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
-    }
-
     public Medico(ArrayDeque<Paciente> pacisMedico, ArrayDeque<Paciente> pacisExame) {
         super(pacisMedico, pacisExame);
     }

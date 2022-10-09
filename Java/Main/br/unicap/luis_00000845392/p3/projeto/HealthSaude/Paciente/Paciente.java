@@ -1,6 +1,6 @@
 package Java.Main.br.unicap.luis_00000845392.p3.projeto.HealthSaude.Paciente;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Paciente implements Comparable <Paciente>{
     private String nome;
