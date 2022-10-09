@@ -20,12 +20,8 @@ public class ListaDeRecepcionista {
     }
 
     public void addFuncionario(Funcionario f){
-        if (buscar(f) == null) {
+        if (buscar(f) == null)
             recepcionistas.add(f);
-            System.out.println("Funcionario adicionado ao sistema");
-        } else
-            System.out.println("Funcionario ja cadastrado no sistema");
-
     }
     public Funcionario buscar(Funcionario f){
         if(!getRecepcionistas().isEmpty()){
@@ -39,19 +35,33 @@ public class ListaDeRecepcionista {
         return null;
     }
 
-    public void deleteFuncionario(Funcionario f){
-        if(buscar(f) != null){
-            recepcionistas.remove(f);
-            System.out.println("Funcionario removido do sistema");
-        }
-        else
-            System.out.println("Funcionario nao encontrado no sistema");
+    public void deleteFuncionario(Funcionario f, int x){
+        if(buscar(f) != null)
+            recepcionistas.remove(x);
     }
 
-    public void exibirLista(){
-        for (Funcionario recepcionista : recepcionistas) {
-            System.out.println(recepcionista);
+    public void exibirLista() {
+        if (recepcionistas.isEmpty())
+            System.out.println("Lista de recepcionistas esta vazia");
+        else{
+            for(int i = 0; i < recepcionistas.size(); i++){
+                System.out.println(i + " - Nome: '" + getRecepcionistas().get(i).getNome() + "'. CPF: '" +
+                        getRecepcionistas().get(i).getCpf() + "'. Telefone: '" + getRecepcionistas().get(i).getTelefone()
+                        + "'. Matricula: '" + getRecepcionistas().get(i).getMatricula() + "'");
+            }
         }
+    }
+
+    public int buscarInt(Funcionario f){
+        if(!getRecepcionistas().isEmpty()){
+            int aux = 0;
+            while(aux < recepcionistas.size()){
+                if(f.compareTo(recepcionistas.get(aux)) == 0)
+                    return aux;
+                aux++;
+            }
+        }
+        return -1;
     }
 
 }

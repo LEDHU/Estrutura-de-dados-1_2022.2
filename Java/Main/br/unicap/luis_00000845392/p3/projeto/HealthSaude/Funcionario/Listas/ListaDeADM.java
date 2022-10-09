@@ -19,12 +19,8 @@ public class ListaDeADM {
     }
 
     public void addFuncionario(Funcionario f){
-        if (buscar(f) == null) {
+        if (buscar(f) == null)
             adms.add(f);
-            System.out.println("Funcionario adicionado ao sistema");
-        } else
-            System.out.println("Funcionario ja cadastrado no sistema");
-
     }
     public Funcionario buscar(Funcionario f){
         if(!getAdms().isEmpty()){
@@ -38,19 +34,32 @@ public class ListaDeADM {
         return null;
     }
 
-    public void deleteFuncionario(Funcionario f){
-        if(buscar(f) != null){
-            adms.remove(f);
-            System.out.println("Funcionario removido do sistema");
+    public int buscarInt(Funcionario f){
+        if(!getAdms().isEmpty()){
+            int aux = 0;
+            while(aux < adms.size()){
+                if(f.compareTo(adms.get(aux)) == 0)
+                    return aux;
+                aux++;
+            }
         }
-        else
-            System.out.println("Funcionario nao encontrado no sistema");
+        return -1;
+    }
+
+    public void deleteFuncionario(Funcionario f, int i){
+        if(buscar(f) != null)
+            adms.remove(i);
     }
 
     public void exibirLista(){
-        int x = adms.size();
-        for(int i = 0; i < x; i++){
-            System.out.println(adms.get(i));
+        if(adms.isEmpty())
+            System.out.println("Lista de administração vazia");
+        else {
+            for(int i = 0; i < adms.size(); i++){
+                System.out.println(i + " - Nome: '" + getAdms().get(i).getNome() + "'. CPF: '" +
+                        getAdms().get(i).getCpf() + "'. Telefone: '" + getAdms().get(i).getTelefone()
+                        + "'. Matricula: '" + getAdms().get(i).getMatricula() + "'");
+            }
         }
     }
 

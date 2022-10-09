@@ -13,6 +13,11 @@ public class Paciente implements Comparable <Paciente>{
         this.cpf = cpf;
     }
 
+    public Paciente(String nome, String cpf){
+        this.cpf = cpf;
+        this.nome = nome;
+    }
+
     public Paciente(String nome, String cpf, String endereco, String telefone, Date nasc) {
         this.nome = nome;
         this.cpf = cpf;
@@ -64,12 +69,11 @@ public class Paciente implements Comparable <Paciente>{
     @Override
     public String toString() {
 
-        return new String("----------------------\n"
-                + "Nome: " + nome +
+        return new String("Nome: " + nome +
                 "\nCPF: " + cpf +
                 "\nEndereco: '" + endereco +
                 "\nTelefone: " + telefone +
-                "Data de nascimento: " + nasc );
+                "\nData de nascimento: " + nasc );
     }
 
 

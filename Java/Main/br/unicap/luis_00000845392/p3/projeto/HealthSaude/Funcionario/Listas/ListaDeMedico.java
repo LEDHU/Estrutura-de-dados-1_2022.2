@@ -20,11 +20,8 @@ public class ListaDeMedico {
     }
 
     public void addFuncionario(Funcionario f){
-        if (buscar(f) == null) {
+        if (buscar(f) == null)
             medicos.add(f);
-            System.out.println("Funcionario adicionado ao sistema");
-        } else
-            System.out.println("Funcionario ja cadastrado no sistema");
 
     }
     public Funcionario buscar(Funcionario f){
@@ -39,19 +36,32 @@ public class ListaDeMedico {
         return null;
     }
 
-    public void deleteFuncionario(Funcionario f){
-        if(buscar(f) != null){
-            medicos.remove(f);
-            System.out.println("Funcionario removido do sistema");
-        }
-        else
-            System.out.println("Funcionario nao encontrado no sistema");
+    public void deleteFuncionario(Funcionario f, int x){
+        if(buscar(f) != null)
+            medicos.remove(x);
     }
     public void exibirLista(){
-        for (Funcionario medico : medicos) {
-            System.out.println(medico);
+        if(medicos.isEmpty())
+            System.out.println("Lista de medicos esta vazia");
+        else {
+            for(int i = 0; i < medicos.size(); i++){
+                System.out.println(i + " - Nome: '" + getMedicos().get(i).getNome() + "'. CPF: '" +
+                        getMedicos().get(i).getCpf() + "'. Telefone: '" + getMedicos().get(i).getTelefone()
+                        + "'. Matricula: '" + getMedicos().get(i).getMatricula() + "'");
+            }
         }
     }
 
+    public int buscarInt(Funcionario f){
+        if(!getMedicos().isEmpty()){
+            int aux = 0;
+            while(aux < medicos.size()){
+                if(f.compareTo(medicos.get(aux)) == 0)
+                    return aux;
+                aux++;
+            }
+        }
+        return -1;
+    }
 
 }

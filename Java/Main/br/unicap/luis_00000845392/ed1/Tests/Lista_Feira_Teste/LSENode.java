@@ -1,4 +1,4 @@
-package Lista_Feira_Teste;
+package Java.Main.br.unicap.luis_00000845392.ed1.Tests.Lista_Feira_Teste;
 
 public class LSENode {
     private Produtos info;

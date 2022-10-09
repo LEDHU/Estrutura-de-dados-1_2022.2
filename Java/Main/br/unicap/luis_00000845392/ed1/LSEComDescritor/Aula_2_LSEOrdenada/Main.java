@@ -1,4 +1,4 @@
-package Aula_2_LSEOrdenada;
+package Java.Main.br.unicap.luis_00000845392.ed1.LSEComDescritor.Aula_2_LSEOrdenada;
 
 import java.util.Scanner;
 
