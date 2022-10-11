@@ -25,8 +25,12 @@ public class Q2 {
                 fila.enqueue(pedido);
             }
             else if(opcao == 2){
-                fila.dequeue();
-                System.out.println("Pedido entregue");
+                if(!fila.isEmpty()) {
+                    fila.dequeue();
+                    System.out.println("Pedido entregue");
+                }
+                else
+                    System.out.println("Nao ha pedidos em espera");
             }
             else if(opcao == 3)
                 fila.exibirFila();
