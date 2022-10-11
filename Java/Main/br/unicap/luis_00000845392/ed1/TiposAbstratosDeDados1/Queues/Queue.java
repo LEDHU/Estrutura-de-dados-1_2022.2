@@ -15,26 +15,24 @@ public class Queue<T> {
         if(isEmpty())
             this.tail = novo;
 
-        else{
-            LSENode<T> aux;
-            aux = this.head;
-            aux.setProx(novo);
-        }
+        else
+            this.head.setProx(novo);
+
         this.head = novo;
         this.qtd++;
     }
 
-    public void dequeue(){
+    public T dequeue(){
         LSENode <T> aux = this.tail;
         if(this.qtd == 1){
             this.tail = null;
             this.head = null;
             this.qtd--;
-            return;
         }
         aux = aux.getProx();
         this.tail = aux;
         this.qtd--;
+        return aux.getInfo();
     }
 
     public void exibirFila(){
