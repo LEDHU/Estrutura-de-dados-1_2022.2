@@ -1,25 +1,35 @@
 package Java.Main.br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Queues;
 
-public class Queue<T> {
+public class QueueLimitada<T> {
     private LSENode<T> tail;
     private LSENode<T> head;
     private int qtd;
+    private final int tam;
+
+    public QueueLimitada(int tam) {
+        this.tam = tam;
+    }
 
     public boolean isEmpty(){
         return this.tail == null && this.head == null && this.qtd == 0;
     }
 
     public void enqueue(T valor){
-        LSENode<T> novo = new LSENode<>(valor);
+        if(this.qtd < this.tam) {
+            LSENode<T> novo = new LSENode<>(valor);
 
-        if(isEmpty())
-            this.tail = novo;
+            if (isEmpty())
+                this.tail = novo;
 
-        else
-            this.head.setProx(novo);
+            else
+                this.head.setProx(novo);
 
-        this.head = novo;
-        this.qtd++;
+            this.head = novo;
+            this.qtd++;
+        }
+        else {
+            System.out.println("isFull");
+        }
     }
 
     public T dequeue(){
@@ -50,7 +60,7 @@ public class Queue<T> {
     }
 
     public boolean isFull(){
-        return false;
+        return this.qtd == this.tam;
     }
 
 
