@@ -1,6 +1,6 @@
 package br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Testes.Lista3.Q2;
 
-import br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Testes.Lista3.Queue.Q1;
+import br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Testes.Lista3.Q1.Q1;
 
 import java.util.Scanner;
 
