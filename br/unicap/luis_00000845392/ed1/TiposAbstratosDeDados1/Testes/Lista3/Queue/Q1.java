@@ -1,12 +1,14 @@
-package br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Queues;
+package br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Testes.Lista3.Queue;
 
-public class QueueLimitada<T> {
+import br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Queues.LSENode;
+
+public class Q1<T> {
     private LSENode<T> tail;
     private LSENode<T> head;
     private int qtd = 0;
     private final int tam;
 
-    public QueueLimitada(int tam) {
+    public Q1(int tam) {
         this.tam = tam;
     }
 

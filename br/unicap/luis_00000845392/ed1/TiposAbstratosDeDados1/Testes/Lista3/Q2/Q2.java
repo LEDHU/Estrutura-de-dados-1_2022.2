@@ -1,6 +1,6 @@
 package br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Testes.Lista3.Q2;
 
-import br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Queues.QueueLimitada;
+import br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Testes.Lista3.Queue.Q1;
 
 import java.util.Scanner;
 
@@ -9,7 +9,7 @@ public class Q2 {
         Scanner in = new Scanner(System.in);
 
         System.out.println("Qual o tamanho da fila? ");
-        QueueLimitada<Object> filaLimitada = new QueueLimitada<>(in.nextInt());
+        Q1<Object> filaLimitada = new Q1<>(in.nextInt());
         int op;
         int cont = 1;
         boolean p = true;
