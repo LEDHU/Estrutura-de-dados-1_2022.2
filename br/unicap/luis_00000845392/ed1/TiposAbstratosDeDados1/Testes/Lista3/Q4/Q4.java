@@ -24,7 +24,7 @@ public class Q4 {
                     queueQ3.push(valor);
                 }
                 case 2->
-                    queueQ3.pop();
+                    System.out.println(queueQ3.pop());
                 case 3->{
                     System.out.println("Valor: ");
                     valor = in.nextInt();
