@@ -3,7 +3,7 @@ package br.unicap.luis_00000845392.ed1.TiposAbstratosDeDados1.Queues;
 public class QueueLimitada<T> {
     private LSENode<T> tail;
     private LSENode<T> head;
-    private int qtd;
+    private int qtd = 0;
     private final int tam;
 
     public QueueLimitada(int tam) {
@@ -14,7 +14,7 @@ public class QueueLimitada<T> {
         return this.tail == null && this.head == null && this.qtd == 0;
     }
 
-    public void enqueue(T valor){
+    public boolean enqueue(T valor){
         if(this.qtd < this.tam) {
             LSENode<T> novo = new LSENode<>(valor);
 
@@ -26,10 +26,10 @@ public class QueueLimitada<T> {
 
             this.head = novo;
             this.qtd++;
+            return true;
         }
-        else {
-            System.out.println("isFull");
-        }
+        else
+            return false;
     }
 
     public T dequeue(){
