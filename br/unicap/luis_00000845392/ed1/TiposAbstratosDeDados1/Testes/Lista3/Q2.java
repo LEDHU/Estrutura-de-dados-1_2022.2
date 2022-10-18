@@ -25,8 +25,12 @@ public class Q2 {
                         System.out.println("Cliente deverá retornar em um outro momento.");
                 }
                 case 2 -> {
-                    int aux = (int) filaLimitada.dequeue();
-                    System.out.println("SENHA: " + aux + "\nCAIXA: 01");
+                    if(!filaLimitada.isEmpty()) {
+                        int aux = (int) filaLimitada.dequeue();
+                        System.out.println("SENHA: " + aux + "\nCAIXA: 01");
+                    }
+                    else
+                        System.out.println("Fila vazia");
                 }
                 case 3 ->
                     filaLimitada.exibirFila();
