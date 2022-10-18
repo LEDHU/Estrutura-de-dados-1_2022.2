@@ -20,15 +20,23 @@ public class Q4 {
                     valor = in.nextInt();
                     queueQ3.push(valor);
                 }
-                case 2->
-                    System.out.println(queueQ3.pop());
+                case 2-> {
+                    if(!queueQ3.isEmpty())
+                        System.out.println(queueQ3.pop());
+                    else
+                        System.out.println("Vazia");
+                }
                 case 3->{
                     System.out.println("Valor: ");
                     valor = in.nextInt();
                     queueQ3.inject(valor);
                 }
-                case 4 ->
-                    System.out.println(queueQ3.eject());
+                case 4 -> {
+                    if(!queueQ3.isEmpty())
+                        System.out.println(queueQ3.eject());
+                    else
+                        System.out.println("Vazia");
+                }
                 case 5 ->
                     System.out.println(queueQ3.isEmpty());
                 case 6 ->
