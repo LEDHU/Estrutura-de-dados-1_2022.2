@@ -13,9 +13,9 @@ public class LDELista<T extends Comparable<T>>{
         LDENode<T> novo = new LDENode<>(valor);
         LDENode<T> aux = this.head;
 
-        if(isEmpty()){
+        if(isEmpty())
             this.tail = novo;
-        }
+
         else{
             novo.setNext(aux);
             aux.setPrevious(novo);
@@ -28,9 +28,9 @@ public class LDELista<T extends Comparable<T>>{
         LDENode<T> novo = new LDENode<>(valor);
         LDENode<T> aux = this.tail;
 
-        if(isEmpty()){
+        if(isEmpty())
             this.head = novo;
-        }
+
         else{
             aux.setNext(novo);
             novo.setPrevious(aux);

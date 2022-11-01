@@ -12,6 +12,7 @@ public class main {
         ldeOrdenada.inserir(85);
         ldeOrdenada.inserir(65);
 
+
         ldeOrdenada.exibirTodos();
         ldeOrdenada.remover(10);
         ldeOrdenada.exibirTodos();

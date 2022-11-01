@@ -9,7 +9,7 @@ public class LDEOrdenada<T extends Comparable<T>> {
         return this.qtd == 0;
     }
     public void inserir (T valor) {
-        LDENode<T> novo = new LDENode<T>(valor);
+        LDENode<T> novo = new LDENode<>(valor);
         LDENode<T> aux, anterior;
         if (this.isEmpty()) { // inserir na lista vazia
             this.head = novo;
@@ -62,7 +62,7 @@ public class LDEOrdenada<T extends Comparable<T>> {
         if (!this.isEmpty()){
             aux = this.head;
             while (aux != null) {
-                if(aux.getInfo().compareTo(valor) > 0) {
+                if(aux.getInfo().compareTo(valor) <= 0) {
                     if (aux.getInfo().compareTo(valor) == 0)
                         return aux;
                     else
@@ -119,24 +119,14 @@ public class LDEOrdenada<T extends Comparable<T>> {
 
             //ta no meio
             else{
-                LDENode<T> aux;
-                aux = this.head.getNext();
-                while(true){
-                    //achou
-                    if(aux.getInfo().compareTo(valor) == 0){
-                        aux.getPrevious().setNext(aux.getNext());
-                        aux.getNext().setPrevious(aux.getPrevious());
-                        this.qtd--;
-                        break;
-                    }
-                    //se o valor nao encontra no meio da lista
-                    else if(aux.getInfo().compareTo(valor) > 0) {
-                        System.out.println("Nao pertence a lista");
-                        break;
-                    }
-                    else{
-                        aux = aux.getNext();
-                    }
+                LDENode<T> aux = buscar(valor);
+                if(aux != null){
+                    aux.getPrevious().setNext(aux.getNext());
+                    aux.getNext().setPrevious(aux.getPrevious());
+                    this.qtd--;
+                }
+                else{
+                    System.out.println("Nao pertence a lista");
                 }
             }
         }
@@ -155,7 +145,7 @@ public class LDEOrdenada<T extends Comparable<T>> {
                 System.out.print(aux.getInfo() + " ");
                 aux = aux.getNext();
             }
-            System.out.println("");
+            System.out.println();
         }
 
     }
