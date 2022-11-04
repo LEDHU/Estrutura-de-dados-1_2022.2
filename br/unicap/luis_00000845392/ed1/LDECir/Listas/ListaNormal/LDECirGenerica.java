@@ -1,8 +1,10 @@
 package br.unicap.luis_00000845392.ed1.LDECir.Listas.ListaNormal;
 
+import br.unicap.luis_00000845392.ed1.LDE.Listas.LDENode;
+
 public class LDECirGenerica<T extends Comparable<T>> {
-    private LDECNode<T> head;
-    private LDECNode<T> tail;
+    private LDENode<T> head;
+    private LDENode<T> tail;
     private int qtd;
 
     public boolean isEmpty(){
@@ -10,8 +12,8 @@ public class LDECirGenerica<T extends Comparable<T>> {
     }
 
     public void insertFirst(T valor){
-        LDECNode<T> novo = new LDECNode<>(valor);
-        LDECNode<T> aux = this.head;
+        LDENode<T> novo = new LDENode<>(valor);
+        LDENode<T> aux = this.head;
 
         if(isEmpty()) {
             this.tail = novo;
@@ -27,8 +29,8 @@ public class LDECirGenerica<T extends Comparable<T>> {
     }
 
     public void insertLast(T valor){
-        LDECNode<T> novo = new LDECNode<>(valor);
-        LDECNode<T> aux = this.tail;
+        LDENode<T> novo = new LDENode<>(valor);
+        LDENode<T> aux = this.tail;
 
         if(isEmpty())
             this.head = novo;
@@ -42,8 +44,8 @@ public class LDECirGenerica<T extends Comparable<T>> {
         this.qtd++;
     }
 
-    public LDECNode<T> buscar (T valor) {
-        LDECNode<T> aux = this.head;
+    public LDENode<T> buscar (T valor) {
+        LDENode<T> aux = this.head;
         if (!this.isEmpty()){
             if(this.head.getInfo().compareTo(valor) == 0)
                 return this.head;
@@ -65,7 +67,7 @@ public class LDECirGenerica<T extends Comparable<T>> {
     }
 
     public void exibir(){
-        LDECNode<T> aux = this.head;
+        LDENode<T> aux = this.head;
         for(int i = 0; i < this.qtd; i++){
             System.out.println(aux.getInfo());
             aux = aux.getNext();
@@ -73,7 +75,7 @@ public class LDECirGenerica<T extends Comparable<T>> {
     }
 
     public boolean remove(T valor){
-        LDECNode<T> aux = buscar(valor);
+        LDENode<T> aux = buscar(valor);
 
         if (aux != null) {
             if(this.qtd == 1){

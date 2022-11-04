@@ -1,7 +1,5 @@
 package br.unicap.luis_00000845392.ed1.LDECir.Listas.ListaOrdenadaSRepetidos;
 
-import br.unicap.luis_00000845392.ed1.LDECir.Listas.ListaNormal.LDECNode;
-
 public class LDECOrdenadaSRepetidos<T extends Comparable<T>> {
     private LDECNode<T> head;
     private LDECNode<T> tail;
