@@ -1,8 +1,10 @@
 package br.unicap.luis_00000845392.ed1.LDECir.Listas.ListaOrdenadaCRepetidos;
 
+import br.unicap.luis_00000845392.ed1.LDE.Listas.LDENode;
+
 public class LDECOrdenadaCRepetidos<T extends Comparable<T>>{
-    private LDECNode<T> head;
-    private LDECNode<T> tail;
+    private LDENode<T> head;
+    private LDENode<T> tail;
     private int qtd;
 
     public boolean isEmpty(){
@@ -10,7 +12,7 @@ public class LDECOrdenadaCRepetidos<T extends Comparable<T>>{
     }
 
     public void insert(T valor){
-        LDECNode<T> novo = new LDECNode<>(valor);
+        LDENode<T> novo = new LDENode<>(valor);
         if (this.isEmpty()) { // inserir na lista vazia
             this.head = novo;
             this.tail = novo;
@@ -29,7 +31,7 @@ public class LDECOrdenadaCRepetidos<T extends Comparable<T>>{
             this.qtd++;
         }
         else {
-            LDECNode<T> aux, anterior;
+            LDENode<T> aux, anterior;
             aux = this.head;
             while (true){
                 if (valor.compareTo(aux.getInfo()) <= 0) { // achei local de inserção
@@ -48,8 +50,8 @@ public class LDECOrdenadaCRepetidos<T extends Comparable<T>>{
         }
 
     }
-    public LDECNode<T> buscar (T valor) {
-        LDECNode<T> aux;
+    public LDENode<T> buscar (T valor) {
+        LDENode<T> aux;
         if (!this.isEmpty()){
             aux = this.head;
             while (aux != null) {
@@ -67,7 +69,7 @@ public class LDECOrdenadaCRepetidos<T extends Comparable<T>>{
     }
 
     public boolean remove(T valor){
-        LDECNode<T> aux = buscar(valor);
+        LDENode<T> aux = buscar(valor);
 
         if (aux != null) {
             if(this.qtd == 1){
@@ -102,10 +104,14 @@ public class LDECOrdenadaCRepetidos<T extends Comparable<T>>{
 
     }
     public void exibir(){
-        LDECNode<T> aux = this.head;
-        for(int i = 0; i < this.qtd; i++){
-            System.out.println(aux.getInfo());
-            aux = aux.getNext();
+        LDENode<T> aux = this.head;
+        if(this.isEmpty())
+            System.out.println("Lista vazia");
+        else {
+            for (int i = 0; i < this.qtd; i++) {
+                System.out.println(aux.getInfo());
+                aux = aux.getNext();
+            }
         }
     }
 

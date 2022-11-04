@@ -47,8 +47,6 @@ public class LDECirGenerica<T extends Comparable<T>> {
     public LDENode<T> buscar (T valor) {
         LDENode<T> aux = this.head;
         if (!this.isEmpty()){
-            if(this.head.getInfo().compareTo(valor) == 0)
-                return this.head;
 
             if(this.tail.getInfo().compareTo(valor) == 0)
                 return this.tail;
@@ -68,9 +66,13 @@ public class LDECirGenerica<T extends Comparable<T>> {
 
     public void exibir(){
         LDENode<T> aux = this.head;
-        for(int i = 0; i < this.qtd; i++){
-            System.out.println(aux.getInfo());
-            aux = aux.getNext();
+        if(this.isEmpty())
+            System.out.println("Lista vazia");
+        else {
+            for (int i = 0; i < this.qtd; i++) {
+                System.out.println(aux.getInfo());
+                aux = aux.getNext();
+            }
         }
     }
 
@@ -118,6 +120,7 @@ public class LDECirGenerica<T extends Comparable<T>> {
             } else {
                 this.head = this.head.getNext();
                 this.head.setPrevious(this.tail);
+                this.tail.setNext(this.head);
             }
             this.qtd--;
             return true;
@@ -133,6 +136,7 @@ public class LDECirGenerica<T extends Comparable<T>> {
             } else {
                 this.tail = this.tail.getPrevious();
                 this.tail.setNext(this.head);
+                this.head.setPrevious(this.tail);
             }
             this.qtd--;
             return true;

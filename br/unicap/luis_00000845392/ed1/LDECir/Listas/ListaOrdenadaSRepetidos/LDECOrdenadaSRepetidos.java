@@ -1,8 +1,10 @@
 package br.unicap.luis_00000845392.ed1.LDECir.Listas.ListaOrdenadaSRepetidos;
 
+import br.unicap.luis_00000845392.ed1.LDE.Listas.LDENode;
+
 public class LDECOrdenadaSRepetidos<T extends Comparable<T>> {
-    private LDECNode<T> head;
-    private LDECNode<T> tail;
+    private LDENode<T> head;
+    private LDENode<T> tail;
     private int qtd;
 
     public boolean isEmpty() {
@@ -10,7 +12,7 @@ public class LDECOrdenadaSRepetidos<T extends Comparable<T>> {
     }
 
     public void inserir(T valor) {
-        LDECNode<T> novo = new LDECNode<>(valor);
+        LDENode<T> novo = new LDENode<>(valor);
 
         if (this.isEmpty()) {
             this.head = novo;
@@ -31,7 +33,7 @@ public class LDECOrdenadaSRepetidos<T extends Comparable<T>> {
         } else if (valor.compareTo(this.tail.getInfo()) == 0) {
             System.out.println("Valor repetido. Inserção não efetuada!");
         } else {
-            LDECNode<T> aux = this.head.getNext(), anterior;
+            LDENode<T> aux = this.head.getNext(), anterior;
             while (true) {
                 if (valor.compareTo(aux.getInfo()) == 0) {
                     System.out.println("Valor repetido. Inserção não efetuada!");
@@ -51,8 +53,8 @@ public class LDECOrdenadaSRepetidos<T extends Comparable<T>> {
         }
     }
 
-    public LDECNode<T> buscar(T valor) {
-        LDECNode<T> aux;
+    public LDENode<T> buscar(T valor) {
+        LDENode<T> aux;
         if (!this.isEmpty()) {
             aux = this.head;
             while (aux != null) {
@@ -109,7 +111,7 @@ public class LDECOrdenadaSRepetidos<T extends Comparable<T>> {
 
             //ta no meio
             else {
-                LDECNode<T> aux = buscar(valor);
+                LDENode<T> aux = buscar(valor);
                 if (aux != null) {
                     aux.getPrevious().setNext(aux.getNext());
                     aux.getNext().setPrevious(aux.getPrevious());
@@ -121,17 +123,14 @@ public class LDECOrdenadaSRepetidos<T extends Comparable<T>> {
         }
     }
     public void exibirTodos () {
-        LDECNode<T> aux;
-        if (this.isEmpty())
+        LDENode<T> aux = this.head;
+        if(this.isEmpty())
             System.out.println("Lista vazia");
-
         else {
-            aux = this.head;
-            while (aux != null) {
-                System.out.print(aux.getInfo() + " ");
+            for (int i = 0; i < this.qtd; i++) {
+                System.out.println(aux.getInfo());
                 aux = aux.getNext();
             }
-            System.out.println();
         }
 
     }
