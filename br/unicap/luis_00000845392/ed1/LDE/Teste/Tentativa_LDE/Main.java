@@ -1,6 +1,6 @@
 package br.unicap.luis_00000845392.ed1.LDE.Teste.Tentativa_LDE;
 
-import br.unicap.luis_00000845392.ed1.LDE.Listas.LDELista;
+import br.unicap.luis_00000845392.ed1.LDE.Listas.ListaNormal.LDELista;
 
 public class Main {
     public static void main(String[] args) {

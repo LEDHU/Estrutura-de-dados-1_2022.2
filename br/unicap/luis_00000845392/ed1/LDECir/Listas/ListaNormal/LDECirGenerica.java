@@ -1,6 +1,6 @@
 package br.unicap.luis_00000845392.ed1.LDECir.Listas.ListaNormal;
 
-import br.unicap.luis_00000845392.ed1.LDE.Listas.LDENode;
+import br.unicap.luis_00000845392.ed1.LDE.Listas.ListaNormal.LDENode;
 
 public class LDECirGenerica<T extends Comparable<T>> {
     private LDENode<T> head;
@@ -109,7 +109,18 @@ public class LDECirGenerica<T extends Comparable<T>> {
                 System.out.println("Não pertence a lista");
             return false;
         }
+    }
 
+    public void percorrerInverso(){//funcao sem finalidade, percorre do fim ao inicio
+        LDENode<T> aux = this.tail;
+        if(!this.isEmpty()){
+            for(int i = 0; i < this.qtd; i++){
+                aux = aux.getPrevious();
+            }
+        }
+        else{
+            System.out.println("LIsta vazia");
+        }
     }
 
     public boolean deleteFirst(){

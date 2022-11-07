@@ -1,0 +1,5 @@
+package br.unicap.luis_00000845392.ed1.LDE.Atividades;
+
+public class as {
+so para o package Q1 nao fundir com Lista1
+}

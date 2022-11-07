@@ -1,4 +1,4 @@
-package br.unicap.luis_00000845392.ed1.LDE.Listas;
+package br.unicap.luis_00000845392.ed1.LDE.Listas.ListaNormal;
 
 public class LDENode <T>{
     private LDENode<T> next;

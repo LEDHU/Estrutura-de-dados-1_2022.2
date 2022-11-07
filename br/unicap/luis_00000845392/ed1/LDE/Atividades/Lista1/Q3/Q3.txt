@@ -1,0 +1,46 @@
+package br.unicap.luis_00000845392.ed1.LDE.Atividades.Lista1.Q3;
+
+public class Q3{
+    public void inserir (T valor) {
+        LDENode<T> novo = new LDENode<>(valor);
+        LDENode<T> aux, anterior;
+        if (this.isEmpty()) { // inserir na lista vazia
+            this.head = novo;
+            this.tail = novo;
+            this.qtd++;
+        }
+
+        else if (valor.compareTo(this.head.getInfo()) <= 0) { // inserir antes do primeiro
+            novo.setNext(this.head);
+            this.head.setPrevious(novo);
+            this.head = novo;
+            this.qtd++;
+        }
+
+        else if (valor.compareTo(this.tail.getInfo()) > 0) { // inserir depois do último
+            this.tail.setNext(novo);
+            novo.setPrevious(this.tail);
+            this.tail = novo;
+            this.qtd++;
+        }
+
+        else {
+            aux = this.head.getNext();
+            while (true){
+                if (valor.compareTo(aux.getInfo()) <= 0) { // achei local de inserção
+                    anterior = aux.getPrevious();
+                    anterior.setNext(novo);
+                    aux.setPrevious(novo);
+                    novo.setNext(aux);
+                    novo.setPrevious(anterior);
+                    this.qtd++;
+                    break;
+                }
+                else {
+                    aux = aux.getNext();
+                }
+            }
+        }
+    }
+
+}

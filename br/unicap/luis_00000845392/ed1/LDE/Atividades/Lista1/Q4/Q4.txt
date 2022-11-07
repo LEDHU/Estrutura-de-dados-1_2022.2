@@ -1,0 +1,38 @@
+public void inserir (T valor) {
+        LDENode<T> novo = new LDENode<>(valor);
+        LDENode<T> aux, anterior;
+        if (this.isEmpty()) { // inserir na lista vazia
+            this.head = novo;
+            this.tail = novo;
+            this.qtd++;
+        }
+        else if (valor.compareTo(this.head.getInfo()) > 0) { // inserir antes do primeiro
+            novo.setNext(this.head);
+            this.head.setPrevious(novo);
+            this.head = novo;
+            this.qtd++;
+        }
+        else if (valor.compareTo(this.tail.getInfo()) < 0) { // inserir depois do último
+            this.tail.setNext(novo);
+            novo.setPrevious(this.tail);
+            this.tail = novo;
+            this.qtd++;
+        }
+        else {
+            aux = this.tail.getPrevious();
+            while (true){
+                if (valor.compareTo(aux.getInfo()) <= 0) { // achei local de inserção
+                    anterior = aux.getNext();
+                    anterior.setPrevious(novo);
+                    aux.setNext(novo);
+                    novo.setPrevious(aux);
+                    novo.setNext(anterior);
+                    this.qtd++;
+                    break;
+                }
+                else {
+                    aux = aux.getPrevious();
+                }
+            }
+        }
+    }

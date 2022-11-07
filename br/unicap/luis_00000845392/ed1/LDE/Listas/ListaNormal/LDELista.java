@@ -1,4 +1,4 @@
-package br.unicap.luis_00000845392.ed1.LDE.Listas;
+package br.unicap.luis_00000845392.ed1.LDE.Listas.ListaNormal;
 
 public class LDELista<T extends Comparable<T>>{
     private LDENode<T> head;
@@ -100,13 +100,13 @@ public class LDELista<T extends Comparable<T>>{
             aux = this.tail;
             while (aux != null) {
                 System.out.print(aux.getInfo() + " ");
+                System.out.println();
                 aux = aux.getPrevious();
             }
-            System.out.println("");
         }
     }
 
-    private LDENode<T> buscar(T valor) { // Busca sequencial simples
+    public LDENode<T> buscar(T valor) { // Busca sequencial simples
         LDENode<T> aux;
         if (!this.isEmpty()){
             aux = this.head;
@@ -162,6 +162,10 @@ public class LDELista<T extends Comparable<T>>{
                 aux = aux.getNext();
             }
         }
+    }
+
+    public int numero(){
+        return this.qtd;
     }
 
 }
