@@ -2,7 +2,7 @@ package br.unicap.luis_00000845392.ed1.LDECir.Listas.ListaOrdenadaCRepetidos;
 
 import br.unicap.luis_00000845392.ed1.LDE.Listas.ListaNormal.LDENode;
 
-public class LDECOrdenadaCRepetidos<T extends Comparable<T>>{
+public class LDECOrdenadaCRepCres<T extends Comparable<T>>{
     private LDENode<T> head;
     private LDENode<T> tail;
     private int qtd;
@@ -17,6 +17,8 @@ public class LDECOrdenadaCRepetidos<T extends Comparable<T>>{
             this.head = novo;
             this.tail = novo;
             this.qtd++;
+            novo.setNext(this.head);
+            novo.setPrevious(this.tail);
         }
         else if (valor.compareTo(this.head.getInfo()) < 0) { // inserir antes do primeiro
             novo.setNext(this.head);

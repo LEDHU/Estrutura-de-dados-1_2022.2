@@ -2,7 +2,7 @@ package br.unicap.luis_00000845392.ed1.LDECir.Listas.ListaOrdenadaSRepetidos;
 
 import br.unicap.luis_00000845392.ed1.LDE.Listas.ListaNormal.LDENode;
 
-public class LDECOrdenadaSRepetidos<T extends Comparable<T>> {
+public class LDECOrdenadoSRepDecres<T extends Comparable<T>>  {
     private LDENode<T> head;
     private LDENode<T> tail;
     private int qtd;
@@ -18,14 +18,16 @@ public class LDECOrdenadaSRepetidos<T extends Comparable<T>> {
             this.head = novo;
             this.tail = novo;
             this.qtd++;
-        } else if (valor.compareTo(this.head.getInfo()) < 0) {
+            novo.setNext(this.head);
+            novo.setPrevious(this.tail);
+        } else if (valor.compareTo(this.head.getInfo()) > 0) {
             novo.setNext(this.head);
             this.head.setPrevious(novo);
             this.head = novo;
             this.qtd++;
         } else if (valor.compareTo(this.head.getInfo()) == 0) {
             System.out.println("Valor repetido. Inserção não efetuada!");
-        } else if (valor.compareTo(this.tail.getInfo()) > 0) { // inserir depois do último
+        } else if (valor.compareTo(this.tail.getInfo()) < 0) { // inserir depois do último
             this.tail.setNext(novo);
             novo.setPrevious(this.tail);
             this.tail = novo;
@@ -38,7 +40,7 @@ public class LDECOrdenadaSRepetidos<T extends Comparable<T>> {
                 if (valor.compareTo(aux.getInfo()) == 0) {
                     System.out.println("Valor repetido. Inserção não efetuada!");
                     break;
-                } else if (valor.compareTo(aux.getInfo()) < 0) { // achei local de inserção
+                } else if (valor.compareTo(aux.getInfo()) > 0) { // achei local de inserção
                     anterior = aux.getPrevious();
                     anterior.setNext(novo);
                     aux.setPrevious(novo);
@@ -58,7 +60,7 @@ public class LDECOrdenadaSRepetidos<T extends Comparable<T>> {
         if (!this.isEmpty()) {
             aux = this.head;
             while (aux != null) {
-                if (aux.getInfo().compareTo(valor) <= 0) {
+                if (aux.getInfo().compareTo(valor) >= 0) {
                     if (aux.getInfo().compareTo(valor) == 0)
                         return aux;
                     else
@@ -100,12 +102,12 @@ public class LDECOrdenadaSRepetidos<T extends Comparable<T>> {
             }
 
             //se é menor do que o primeiro no
-            else if (this.head.getInfo().compareTo(valor) > 0) {
+            else if (this.head.getInfo().compareTo(valor) < 0) {
                 System.out.println("Nao pertence a lista");
             }
 
             //se é maior do que o ultimo no
-            else if (this.tail.getInfo().compareTo(valor) < 0) {
+            else if (this.tail.getInfo().compareTo(valor) > 0) {
                 System.out.println("Nao pertence a lista");
             }
 
