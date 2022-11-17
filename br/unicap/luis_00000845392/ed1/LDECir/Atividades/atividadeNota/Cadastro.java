@@ -14,7 +14,12 @@ public class Cadastro {
 
     //Letra A
     public void cadastrar(Aluno aluno){
-        lista.insertLast(aluno);
+        Aluno aluno1 = new Aluno(aluno.getMatricula());
+        LDENode<Aluno> aux = lista.consultar(aluno1);
+        if(aux == null)
+            lista.insertLast(aluno);
+        else
+            System.out.println("Aluno ja cadastrado");
     }
 
     //Letra B

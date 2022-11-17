@@ -7,23 +7,24 @@ public class Aplicacao {
         Cadastro cadastro = new Cadastro();
 
         Aluno aluno0 = new Aluno("Edu", "M0", 0, 7.5);
-        Aluno aluno1 = new Aluno("Edua", "M1", 0, 7.5);
-        Aluno aluno2 = new Aluno("Eduar", "M2", 0, 7.5);
-        Aluno aluno3 = new Aluno("Eduard", "M3", 0, 7.5);
+        Aluno aluno1 = new Aluno("Bia", "M1", 0, 7.5);
+        Aluno aluno2 = new Aluno("Artu", "M2", 0, 7.5);
+        Aluno aluno3 = new Aluno("Caio", "M3", 0, 7.5);
 
 
-        cadastro.inserir(aluno0);
-        cadastro.inserir(aluno1);
-        cadastro.inserir(aluno2);
-        cadastro.inserir(aluno3);
+        cadastro.cadastrar(aluno0);
+        cadastro.cadastrar(aluno1);
+        cadastro.cadastrar(aluno2);
+        cadastro.cadastrar(aluno3);
+        cadastro.cadastrar(aluno0);
 
         cadastro.listar();
         System.out.println();
 
-        cadastro.mediaFinal("M1");
+        cadastro.alterarMediaFinal("M1");
         cadastro.exibir("M1");
 
-        cadastro.falta("M2");
+        cadastro.alterarFalta("M2");
 
         cadastro.listar();
         System.out.println();
