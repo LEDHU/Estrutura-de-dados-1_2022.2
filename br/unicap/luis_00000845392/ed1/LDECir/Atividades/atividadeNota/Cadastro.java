@@ -15,7 +15,7 @@ public class Cadastro {
     //Letra A
     public void cadastrar(Aluno aluno){
         Aluno aluno1 = new Aluno(aluno.getMatricula());
-        LDENode<Aluno> aux = lista.consultar(aluno1);
+        LDENode<Aluno> aux = this.lista.consultar(aluno1);
         if(aux == null)
             lista.insertLast(aluno);
         else
@@ -24,7 +24,7 @@ public class Cadastro {
 
     //Letra B
     public void listar(){
-        lista.listar();
+        this.lista.listar();
     }
 
     //Letra C
@@ -34,14 +34,23 @@ public class Cadastro {
     public void alterarMediaFinal(String matricula){
         Scanner in = new Scanner(System.in);
         Aluno aluno = new Aluno(matricula);
-        LDENode<Aluno> aux = lista.consultar(aluno);
+        LDENode<Aluno> aux = this.lista.consultar(aluno);
         double media;
 
         if(aux != null){
             System.out.println("Nova media: ");
             media = in.nextDouble();
             aluno = aux.getInfo();
+            if(media > 10){
+                media = 10;
+                System.out.println("A media não pode ser maior que 10. Aluno ira ficar com 10 na media final");
+            }
+            else if(media < 0){
+                media = 0;
+                System.out.println("A media não pode ser menor que 0. Aluno ira ficar com 0 na media final");
+            }
             aluno.setMedia_f(media);
+            System.out.println("Media alterada");
         }
         else
             System.out.println("Aluno não encontrado!");
@@ -51,15 +60,25 @@ public class Cadastro {
     public void alterarFalta(String matricula){
         Scanner in = new Scanner(System.in);
         Aluno aluno = new Aluno (matricula);
-        LDENode<Aluno> aux = lista.consultar(aluno);
+        LDENode<Aluno> aux = this.lista.consultar(aluno);
         int faltas;
+        int auxiliar;
 
         if (aux != null) {
             aluno = aux.getInfo();
+
             System.out.println("Acrescentar(falta positiva) ou decrementar(falta negativa): ");
             faltas = in.nextInt();
-            aluno.setFaltas(aluno.getFaltas() + faltas);
-            System.out.println("alteração realizada");
+
+            auxiliar = aluno.getFaltas() + faltas;
+
+            if(aluno.getFaltas() + faltas < 0){
+                auxiliar = 0;
+                System.out.println("Aluno não pode ficar com faltas negativas. Faltas zeradas");
+            }
+
+            aluno.setFaltas(auxiliar);
+            System.out.println("Falta alterada");
         }
         else
             System.out.println("Aluno não encontrado!");
@@ -69,7 +88,7 @@ public class Cadastro {
     //LETRA F
     public void exibir(String matricula){
         Aluno alun0 = new Aluno (matricula);
-        LDENode<Aluno> aluno = lista.consultar(alun0);
+        LDENode<Aluno> aluno = this.lista.consultar(alun0);
         if(aluno != null){
             System.out.println("Media Final: " + aluno.getInfo().getMedia_f() +
                     "\nFaltas: " + aluno.getInfo().getFaltas());
@@ -81,6 +100,12 @@ public class Cadastro {
     //LETRA G
     public void remove(String matricula){
         Aluno aluno = new Aluno (matricula);
-        lista.remove(aluno);
+        this.lista.remove(aluno);
+    }
+
+    //Metodos extras
+    public boolean verificarMatricula(String matricula){
+        Aluno aluno = new Aluno(matricula);
+        return lista.consultar(aluno) == null;
     }
 }
