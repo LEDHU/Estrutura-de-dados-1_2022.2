@@ -2,9 +2,7 @@ package br.unicap.luis_00000845392.ed1.LDECir.Atividades.atividadeNota;
 
 import br.unicap.luis_00000845392.ed1.LDE.Listas.ListaNormal.LDENode;
 
-import java.util.Scanner;
-
-public class LDECircularG <T extends Comparable<Aluno>>{
+public class LDECircularG <T extends Comparable<T>>{
     private LDENode<T> head;
     private LDENode<T> tail;
     private int qtd;
@@ -44,15 +42,12 @@ public class LDECircularG <T extends Comparable<Aluno>>{
         }
     }
     //LETRA C
-    public Aluno consultar(String matricula){
+    public LDENode<T> consultar(T valor){
         LDENode<T> aux = this.head;
-        Aluno aluno = new Aluno(matricula);
         if (!this.isEmpty()){
             for (int i = 0; i < this.qtd; i++){
-                if(aux.getInfo().compareTo(aluno) == 0){
-
-                    return ;
-                }
+                if(aux.getInfo().compareTo(valor) == 0)
+                    return aux;
                 else
                     aux = aux.getNext();
             }
@@ -60,49 +55,9 @@ public class LDECircularG <T extends Comparable<Aluno>>{
         return null;
     }
 
-    //LETRA D
-    public void alterarMediaFinal(String matricula){
-        Scanner in = new Scanner(System.in);
-        Aluno aux = this.consultar(matricula);
-        if(aux != null){
-            System.out.println("Nova media: ");
-            double media = in.nextDouble();
-            aux.setMedia_f(media);
-        }
-        else
-            System.out.println("Aluno não encontrado!");
-    }
-
-    //LETRA E
-    public void alterarFalta(String matricula){
-        Scanner in = new Scanner(System.in);
-        Aluno aux = this.consultar(matricula);
-        if(aux != null){
-            System.out.println("Acrescentar(falta positiva) ou decrementar(falta negativa): ");
-            int falta = in.nextInt();
-            aux.setFaltas(aux.getFaltas() + falta);
-            System.out.println("Alterado");
-        }
-        else
-            System.out.println("Aluno não encontrado!");
-    }
-
-    //LETRA F
-    public void exibir(String matri){
-        Aluno aux = this.consultar(matri);
-        if(aux != null){
-            System.out.println("Media Final: " + aux.getMedia_f() +
-                    "\nFaltas: " + aux.getFaltas());
-        }
-        else
-            System.out.println("Lista vazia");
-
-    }
-
     //LETRA G
-    public void remove(String matri){
-        Aluno aluno = new Aluno(matri);
-        LDENode<T> aux = buscar(aluno);
+    public void remove(T valor){
+        LDENode<T> aux = consultar(valor);
 
         if (aux != null) {
             if(this.qtd == 1){
@@ -133,23 +88,4 @@ public class LDECircularG <T extends Comparable<Aluno>>{
         }
     }
 
-    public LDENode<T> buscar (Aluno valor) {
-        LDENode<T> aux = this.head;
-        if (!this.isEmpty()){
-
-            if(this.tail.getInfo().compareTo(valor) == 0)
-                return this.tail;
-
-            for (int i = 0; i < this.qtd; i++){
-                if(aux.getInfo().compareTo(valor) <= 0) {
-                    if (aux.getInfo().compareTo(valor) == 0)
-                        return aux;
-                    aux = aux.getNext();
-                }
-                else
-                    return null;
-            }
-        }
-        return null;
-    }
 }

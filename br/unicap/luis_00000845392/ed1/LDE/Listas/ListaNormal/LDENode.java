@@ -1,6 +1,6 @@
 package br.unicap.luis_00000845392.ed1.LDE.Listas.ListaNormal;
 
-public class LDENode <T>{
+public class LDENode <T extends Comparable<T>>{
     private LDENode<T> next;
     private LDENode<T> previous;
     private T info;
