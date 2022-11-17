@@ -18,7 +18,7 @@ public class LDECircularG <T extends Comparable<Aluno>>{
         LDENode<T> novo = new LDENode<>(valor);
         LDENode<T> aux = this.tail;
 
-        if(isEmpty())
+        if(this.isEmpty())
             this.head = novo;
         else{
             aux.setNext(novo);
@@ -38,27 +38,23 @@ public class LDECircularG <T extends Comparable<Aluno>>{
         else {
             for (int i = 0; i < this.qtd; i++) {
                 System.out.println(aux.getInfo());
+                System.out.println();
                 aux = aux.getNext();
             }
         }
     }
     //LETRA C
-    public LDENode<T> buscar (String matri) {
+    public Aluno consultar(String matricula){
         LDENode<T> aux = this.head;
-        Aluno matr = new Aluno(matri);
+        Aluno aluno = new Aluno(matricula);
         if (!this.isEmpty()){
-            if(this.tail.getInfo().compareTo(matr) == 0)
-                return this.tail;
-
             for (int i = 0; i < this.qtd; i++){
-                if(aux.getInfo().compareTo(matr) <= 0) {
-                    if (aux.getInfo().compareTo(matr) == 0) {
-                        return aux;
-                    }
-                    aux = aux.getNext();
+                if(aux.getInfo().compareTo(aluno) == 0){
+
+                    return ;
                 }
                 else
-                    return null;
+                    aux = aux.getNext();
             }
         }
         return null;
@@ -67,12 +63,11 @@ public class LDECircularG <T extends Comparable<Aluno>>{
     //LETRA D
     public void alterarMediaFinal(String matricula){
         Scanner in = new Scanner(System.in);
-        LDENode<T> aux = this.buscar(matricula);
+        Aluno aux = this.consultar(matricula);
         if(aux != null){
             System.out.println("Nova media: ");
             double media = in.nextDouble();
-            aux.getInfo().;
-            aux.getInfo().setMedia_f(media);
+            aux.setMedia_f(media);
         }
         else
             System.out.println("Aluno não encontrado!");
@@ -81,11 +76,11 @@ public class LDECircularG <T extends Comparable<Aluno>>{
     //LETRA E
     public void alterarFalta(String matricula){
         Scanner in = new Scanner(System.in);
-        LDENode<T> aux = this.buscar(matricula);
+        Aluno aux = this.consultar(matricula);
         if(aux != null){
             System.out.println("Acrescentar(falta positiva) ou decrementar(falta negativa): ");
             int falta = in.nextInt();
-            aux.getInfo().setFaltas(getFaltas + falta);
+            aux.setFaltas(aux.getFaltas() + falta);
             System.out.println("Alterado");
         }
         else
@@ -94,9 +89,10 @@ public class LDECircularG <T extends Comparable<Aluno>>{
 
     //LETRA F
     public void exibir(String matri){
-        LDENode<T> aux = this.buscar(matri);
+        Aluno aux = this.consultar(matri);
         if(aux != null){
-            System.out.println(aux.getInfo());
+            System.out.println("Media Final: " + aux.getMedia_f() +
+                    "\nFaltas: " + aux.getFaltas());
         }
         else
             System.out.println("Lista vazia");
@@ -104,8 +100,9 @@ public class LDECircularG <T extends Comparable<Aluno>>{
     }
 
     //LETRA G
-    public boolean remove(String matri){
-        LDENode<T> aux = buscar(matri);
+    public void remove(String matri){
+        Aluno aluno = new Aluno(matri);
+        LDENode<T> aux = buscar(aluno);
 
         if (aux != null) {
             if(this.qtd == 1){
@@ -127,15 +124,32 @@ public class LDECircularG <T extends Comparable<Aluno>>{
                 aux.getNext().setPrevious(aux.getPrevious());
             }
             this.qtd--;
-            return true;
-
         }
         else {
             if (isEmpty())
                 System.out.println("Lista vazia");
             else
                 System.out.println("Aluno não cadastrado");
-            return false;
         }
+    }
+
+    public LDENode<T> buscar (Aluno valor) {
+        LDENode<T> aux = this.head;
+        if (!this.isEmpty()){
+
+            if(this.tail.getInfo().compareTo(valor) == 0)
+                return this.tail;
+
+            for (int i = 0; i < this.qtd; i++){
+                if(aux.getInfo().compareTo(valor) <= 0) {
+                    if (aux.getInfo().compareTo(valor) == 0)
+                        return aux;
+                    aux = aux.getNext();
+                }
+                else
+                    return null;
+            }
+        }
+        return null;
     }
 }
