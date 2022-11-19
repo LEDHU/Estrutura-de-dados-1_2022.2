@@ -89,13 +89,13 @@ public class LDECOrdenadaSRepCres<T extends Comparable<T>> {
             //o primeiro no
             if (this.head.getInfo().compareTo(valor) == 0) {
                 this.head = this.head.getNext();
-                this.head.setPrevious(null);
+                this.head.setPrevious(this.tail);
                 this.qtd--;
             }
             //o ultimo no
             else if (this.tail.getInfo().compareTo(valor) == 0) {
                 this.tail = this.tail.getPrevious();
-                this.tail.setNext(null);
+                this.tail.setNext(this.head);
                 this.qtd--;
             }
 

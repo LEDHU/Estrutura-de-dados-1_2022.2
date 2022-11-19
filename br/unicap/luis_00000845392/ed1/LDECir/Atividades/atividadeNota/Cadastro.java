@@ -1,30 +1,31 @@
 package br.unicap.luis_00000845392.ed1.LDECir.Atividades.atividadeNota;
 
 import br.unicap.luis_00000845392.ed1.LDE.Listas.ListaNormal.LDENode;
+import br.unicap.luis_00000845392.ed1.LDECir.Listas.ListaOrdenadaCRepetidos.LDECOrdenadaCRepCres;
 
 import java.util.Scanner;
 
 public class Cadastro {
-    private final LDECircularG<Aluno> lista;
+    private final LDECOrdenadaCRepCres<Aluno> lista;
 
     //Construdor
     public Cadastro(){
-        lista = new LDECircularG<>();
+        lista = new LDECOrdenadaCRepCres<>();
     }
 
     //Letra A
     public void cadastrar(Aluno aluno){
         Aluno aluno1 = new Aluno(aluno.getMatricula());
-        LDENode<Aluno> aux = this.lista.consultar(aluno1);
+        LDENode<Aluno> aux = this.lista.buscar(aluno1);
         if(aux == null)
-            lista.insertLast(aluno);
+            lista.insert(aluno);
         else
             System.out.println("Aluno ja cadastrado");
     }
 
     //Letra B
     public void listar(){
-        this.lista.listar();
+        this.lista.exibir();
     }
 
     //Letra C
@@ -34,7 +35,7 @@ public class Cadastro {
     public void alterarMediaFinal(String matricula){
         Scanner in = new Scanner(System.in);
         Aluno aluno = new Aluno(matricula);
-        LDENode<Aluno> aux = this.lista.consultar(aluno);
+        LDENode<Aluno> aux = this.lista.buscar(aluno);
         double media;
 
         if(aux != null){
@@ -60,7 +61,7 @@ public class Cadastro {
     public void alterarFalta(String matricula){
         Scanner in = new Scanner(System.in);
         Aluno aluno = new Aluno (matricula);
-        LDENode<Aluno> aux = this.lista.consultar(aluno);
+        LDENode<Aluno> aux = this.lista.buscar(aluno);
         int faltas;
         int auxiliar;
 
@@ -88,7 +89,7 @@ public class Cadastro {
     //LETRA F
     public void exibir(String matricula){
         Aluno alun0 = new Aluno (matricula);
-        LDENode<Aluno> aluno = this.lista.consultar(alun0);
+        LDENode<Aluno> aluno = this.lista.buscar(alun0);
         if(aluno != null){
             System.out.println("Media Final: " + aluno.getInfo().getMedia_f() +
                     "\nFaltas: " + aluno.getInfo().getFaltas());
@@ -106,6 +107,6 @@ public class Cadastro {
     //Metodos extras
     public boolean verificarMatricula(String matricula){
         Aluno aluno = new Aluno(matricula);
-        return lista.consultar(aluno) == null;
+        return lista.buscar(aluno) == null;
     }
 }
