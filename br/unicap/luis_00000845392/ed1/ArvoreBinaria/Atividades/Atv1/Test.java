@@ -54,18 +54,33 @@ public class Test<T extends Comparable<T>> {
     }
 
     public void insertSemRecursividade(T valor){
-        if(!this.isEmpyt()) {
-            Node<T> aux = this.root;
-            while(aux != null){
-                if(valor.compareTo(aux.getInfo()) == 0){
-                    System.out.println("Ja repetido");
+        Node<T> aux = this.root;
+        Node<T> novo = new Node<>(valor);
+        while(aux != null){
+            if(valor.compareTo(aux.getInfo()) == 0){
+                System.out.println("Ja repetido");
+                break;
+            }
+            else if(valor.compareTo(aux.getInfo()) < 0) {
+                aux = aux.getLeft();
+                if(aux.getLeft() != null)
+                    aux = aux.getLeft();
+                else{
+                    aux.setLeft(novo);
                     break;
                 }
-                else if(valor.compareTo(aux.getInfo()) < 0){
-                    aux = aux.getLeft();
-                    if(aux)
-                }
             }
+            else{
+                if(aux.getRight() != null){
+                    aux = aux.getRight();
+                }
+                else{
+                    aux.setRight(novo);
+                    break;
+                }
+
+            }
+
         }
     }
 }
