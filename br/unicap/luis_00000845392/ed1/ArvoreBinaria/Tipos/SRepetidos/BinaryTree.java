@@ -27,7 +27,7 @@ public class BinaryTree<T extends Comparable<T>> {
         if(r != null){
             percorrerEmOrdem(r.getLeft());
             System.out.println(r.getInfo());
-            percorrerEmOrdem(r.getLeft());
+            percorrerEmOrdem(r.getRight());
         }
     }
 
@@ -42,7 +42,7 @@ public class BinaryTree<T extends Comparable<T>> {
         if(r != null){
             System.out.println(r.getInfo());
             percorrerPreOrdem(r.getLeft());
-            percorrerPreOrdem(r.getLeft());
+            percorrerPreOrdem(r.getRight());
         }
     }
 
@@ -56,7 +56,7 @@ public class BinaryTree<T extends Comparable<T>> {
     private void percorrerPosOrdem(Node<T> r){
         if(r != null){
             percorrerPosOrdem(r.getLeft());
-            percorrerPosOrdem(r.getLeft());
+            percorrerPosOrdem(r.getRight());
             System.out.println(r.getInfo());
         }
     }
@@ -195,6 +195,41 @@ public class BinaryTree<T extends Comparable<T>> {
         return i;
     }
 
+    public void remove(T valor){
+        if(this.isEmpyt())
+            System.out.println("Arvore vazia");
+        else
+            this.root = this.removeNode(this.root, valor);
+    }
 
+    private Node<T> removeNode(Node <T> r, T valor){
+        if(r != null){
+            if(valor.compareTo(r.getInfo()) == 0){
+                Node<T> pai, filho;
+                if(r.getLeft() == null && r.getRight() == null)
+                    r = null;
+                else if(r.getLeft() == null)
+                    r = r.getRight();
+                else if(r.getRight() == null)
+                    r = r.getLeft();
+                else{
+                    pai = r;
+                    filho = pai.getLeft();
+                    while(filho.getRight() != null){
+                        pai= filho;
+                        filho = filho.getRight();
+                    }
+                    pai.setRight(filho.getLeft());
+                    r.setInfo(filho.getInfo());
+                }
+            }
+            else if(valor.compareTo(r.getLeft().getInfo()) == 0)
+                r.setLeft(removeNode(r.getLeft(),valor));
+            else
+                r.setRight(removeNode(r.getRight(), valor));
+            }
 
-}
+            return r;
+        }
+
+    }
