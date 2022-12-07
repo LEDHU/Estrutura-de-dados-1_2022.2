@@ -64,8 +64,14 @@ public class BinaryTree <T extends Comparable<T>>{
                         pai = filho;
                         filho = filho.getRight();
                     }
-                    pai.setRight(filho.getLeft());
-                    r.setInfo(filho.getInfo());
+                    if(filho.getLeft() == null && filho.getRight() == null){
+                        pai.setLeft(null);
+                        r.setInfo(filho.getInfo());
+                    }
+                    else {
+                        pai.setRight(filho.getLeft());
+                        r.setInfo(filho.getInfo());
+                    }
                 }
             }
             else if (value.compareTo( r.getInfo()) < 0) {

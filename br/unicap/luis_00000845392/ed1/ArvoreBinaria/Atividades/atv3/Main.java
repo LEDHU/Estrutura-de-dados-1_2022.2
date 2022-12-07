@@ -7,59 +7,75 @@ public class Main {
         Cadastro cadastro = new Cadastro();
         Scanner in = new Scanner(System.in);
 
-        Produto a = new Produto("50", "arroz", "super", 2, 12);
-        Produto b = new Produto("30", "arroz", "super", 2, 12);
-        Produto c = new Produto("70", "arroz", "super", 2, 12);
-        Produto d = new Produto("20", "bola", "arco", 3, 18);
-        Produto e = new Produto("65", "arroz", "super", 2, 12);
-        Produto f = new Produto("75", "bola", "arco", 3, 18);
-        Produto g = new Produto("25", "bola", "arco", 3, 18);
-        Produto h = new Produto("80", "arroz", "super", 2, 12);
-        Produto i = new Produto("15", "bola", "arco", 3, 18);
-        Produto j = new Produto("20", "bola", "arco", 3, 18);
-        Produto k = new Produto("72", "bola", "arco", 3, 18);
-        Produto l = new Produto("74", "bola", "arco", 3, 18);
-        Produto m = new Produto("76", "bola", "arco", 3, 18);
-        Produto n = new Produto("12", "bola", "arco", 3, 18);
-        Produto o = new Produto("10", "bola", "arco", 3, 18);
+        Produto produto;
 
-        //Letra A
-        cadastro.add(a);
-        cadastro.add(b);
-        cadastro.add(c);
-        cadastro.add(d);
-        cadastro.add(e);
-        cadastro.add(f);
-        cadastro.add(g);
-        cadastro.add(h);
-        cadastro.add(i);
-        cadastro.add(j);
-        cadastro.add(k);
-        cadastro.add(l);
-        cadastro.add(m);
-        cadastro.add(n);
-        cadastro.add(o);
+        String cod;
+        String des;
+        String forn;
+        double price;
+        int est;
 
-        /*//Letra B
-        cadastro.showTree();
+        int op = 1;
 
-        //Letra D
-        cadastro.showProduto("65");
-        cadastro.changePrice("65");
-        // produto e de valor 12, muda para valor 15
-        cadastro.showProduto("65");
+        while(op != 0){
+            menu();
+            op = in.nextInt();
 
-        //Letra E
-        cadastro.showProduto("20");
-        cadastro.changeStock("20");
-        // produto d de valor 3, muda para valor 5
-        cadastro.showProduto("20");*/
+            switch (op){
+                case 1 -> {
+                    System.out.println("Codigo: ");
+                    cod = in.nextLine();
+                    System.out.println("Descriçao: ");
+                    des = in.nextLine();
+                    System.out.println("Fornecedor: ");
+                    forn = in.nextLine();
+                    System.out.println("Preço: ");
+                    price = in.nextDouble();
+                    System.out.println("Estoque: ");
+                    est = in.nextInt();
+                    produto = new Produto(cod, des, forn, est, price);
 
-        cadastro.showTree();
+                    cadastro.add(produto);
+                }
+                case 2 ->
+                    cadastro.showTree();
 
-        cadastro.remove("25");
-        //cadastro.remove("50");
-        cadastro.showTree();
+                case 3 ->{
+                    System.out.println("Codigo: ");
+                    cod = in.nextLine();
+                    cadastro.changePrice(cod);
+                }
+                case 4 ->{
+                    System.out.println("Codigo: ");
+                    cod = in.nextLine();
+                    cadastro.changeStock(cod);
+                }
+                case 5 ->{
+                    System.out.println("Codigo: ");
+                    cod = in.nextLine();
+                    cadastro.showProduto(cod);
+                }
+                case 6 ->{
+                    System.out.println("Codigo: ");
+                    cod = in.nextLine();
+                    cadastro.remove(cod);
+                }
+                case 0 ->
+                    System.out.println("Ate ED2");
 
+                default ->
+                    System.out.println("Valor incorreto");
+
+            }
+        }
+    }
+
+    public static void menu(){
+        System.out.println("1 - Cadastrar produto");
+        System.out.println("2 - Mostrar todos os produtos");
+        System.out.println("3 - Alterar preço");
+        System.out.println("4 - Alterar estoque");
+        System.out.println("5 - Mostrar apenas um procuto");
+        System.out.println("6 - Excluir produto");
     }
 }
