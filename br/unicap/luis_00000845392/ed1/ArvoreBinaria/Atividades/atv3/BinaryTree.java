@@ -47,17 +47,17 @@ public class BinaryTree <T extends Comparable<T>>{
 
     private NodeTree<T> removeNode (NodeTree<T> r, T value) {
         if (r != null) {
-            if (value.compareTo( r.getInfo()) == 0) {
+            if (value.compareTo(r.getInfo()) == 0) {
                 NodeTree<T> pai, filho;
-                if (r.getLeft() == null && r.getRight() == null) { // Não tem filhos
+                if (r.getLeft() == null && r.getRight() == null) {
                     r = null;
-                } else if (r.getLeft() == null) { // Não tem filho a esquerda
+                } else if (r.getLeft() == null) {
                     r = r.getRight();
                 }
-                else if (r.getRight() == null) { // Não tem filho a direita
+                else if (r.getRight() == null) {
                     r = r.getLeft();
                 }
-                else { // Tem ambos os filhos
+                else {
                     pai = r;
                     filho = pai.getLeft();
                     while (filho.getRight() != null){

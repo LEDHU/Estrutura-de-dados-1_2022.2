@@ -15,9 +15,13 @@ public class Main {
         Produto f = new Produto("75", "bola", "arco", 3, 18);
         Produto g = new Produto("25", "bola", "arco", 3, 18);
         Produto h = new Produto("80", "arroz", "super", 2, 12);
-        Produto i = new Produto("10", "bola", "arco", 3, 18);
+        Produto i = new Produto("15", "bola", "arco", 3, 18);
         Produto j = new Produto("20", "bola", "arco", 3, 18);
-
+        Produto k = new Produto("72", "bola", "arco", 3, 18);
+        Produto l = new Produto("74", "bola", "arco", 3, 18);
+        Produto m = new Produto("76", "bola", "arco", 3, 18);
+        Produto n = new Produto("12", "bola", "arco", 3, 18);
+        Produto o = new Produto("10", "bola", "arco", 3, 18);
 
         //Letra A
         cadastro.add(a);
@@ -30,6 +34,11 @@ public class Main {
         cadastro.add(h);
         cadastro.add(i);
         cadastro.add(j);
+        cadastro.add(k);
+        cadastro.add(l);
+        cadastro.add(m);
+        cadastro.add(n);
+        cadastro.add(o);
 
         /*//Letra B
         cadastro.showTree();
@@ -48,8 +57,7 @@ public class Main {
 
         cadastro.showTree();
 
-        cadastro.remove("75");
-        cadastro.remove("10");
+        cadastro.remove("25");
         //cadastro.remove("50");
         cadastro.showTree();
 
