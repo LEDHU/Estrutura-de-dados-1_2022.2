@@ -75,7 +75,8 @@ public class Main {
         System.out.println("2 - Mostrar todos os produtos");
         System.out.println("3 - Alterar preço");
         System.out.println("4 - Alterar estoque");
-        System.out.println("5 - Mostrar apenas um procuto");
+        System.out.println("5 - Mostrar apenas um produto");
         System.out.println("6 - Excluir produto");
+        System.out.println("0 - Sair");
     }
 }

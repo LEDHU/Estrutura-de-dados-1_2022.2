@@ -1,7 +1,7 @@
 package br.unicap.luis_00000845392.ed1.ArvoreBinaria.Atividades.atv3;
 
 public class Produto implements Comparable<Produto> {
-    private String codigo;
+    private final String codigo;
     private String descricao;
     private String fornecedor;
     private int estoque;
@@ -23,24 +23,12 @@ public class Produto implements Comparable<Produto> {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
     public String getDescricao() {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
     public String getFornecedor() {
         return fornecedor;
-    }
-
-    public void setFornecedor(String fornecedor) {
-        this.fornecedor = fornecedor;
     }
 
     public int getEstoque() {
@@ -66,10 +54,10 @@ public class Produto implements Comparable<Produto> {
 
     @Override
     public String toString() {
-        return "Código = " + codigo + "\n"  +
-                "Descrição = " + descricao + "\n" +
-                "Fornecedor = " + fornecedor + "\n" +
-                "Estoque = " + estoque + "\n" +
-                "Preço = " + preco + "\n\n";
+        return "Código = " + this.getCodigo() + "\n"  +
+                "Descrição = " + this.getDescricao() + "\n" +
+                "Fornecedor = " + this.getFornecedor() + "\n" +
+                "Estoque = " + this.getEstoque() + "\n" +
+                "Preço = " + this.getPreco() + "\n\n";
     }
 }
