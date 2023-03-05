@@ -11,40 +11,40 @@ public class LDECirGenerica<T extends Comparable<T>> {
         return this.qtd == 0;
     }
 
-    public void insertFirst(T valor){
+    public void insert(T valor){
         LDENode<T> novo = new LDENode<>(valor);
-        LDENode<T> aux = this.head;
 
-        if(isEmpty()) {
+        if(isEmpty())
             this.tail = novo;
+
+        else {
+            novo.setNext(this.head);
+            this.head.setPrevious(novo);
         }
-        else{
-            novo.setNext(aux);
-            aux.setPrevious(novo);
-        }
-        novo.setNext(this.head);
-        novo.setPrevious(this.tail);
         this.head = novo;
         this.qtd++;
+        this.head.setPrevious(this.tail);
+        this.tail.setNext(this.head);
     }
 
     public void insertLast(T valor){
         LDENode<T> novo = new LDENode<>(valor);
-        LDENode<T> aux = this.tail;
 
         if(isEmpty())
             this.head = novo;
-        else{
-            aux.setNext(novo);
-            novo.setPrevious(aux);
+
+        else {
+            this.tail.setNext(novo);
+            novo.setPrevious(this.tail);
         }
-        novo.setNext(this.head);
-        novo.setPrevious(this.tail);
         this.tail = novo;
         this.qtd++;
+        this.head.setPrevious(this.tail);
+        this.tail.setNext(this.head);
+
     }
 
-    public LDENode<T> buscar (T valor) {
+    private LDENode<T> buscar (T valor) {
         LDENode<T> aux = this.head;
         if (!this.isEmpty()){
 
@@ -83,16 +83,6 @@ public class LDECirGenerica<T extends Comparable<T>> {
             if(this.qtd == 1){
                 this.head = null;
                 this.tail = null;
-            }
-            else if(this.head == aux){
-                //deleteFirst();
-                this.head = this.head.getNext();
-                this.head.setPrevious(this.tail);
-            }
-            else if(this.tail == aux){
-                //deleteLast();
-                this.tail = this.tail.getPrevious();
-                this.tail.setNext(this.head);
             }
             else{
                 aux.getPrevious().setNext(aux.getNext());
@@ -154,6 +144,5 @@ public class LDECirGenerica<T extends Comparable<T>> {
         }
         return false;
     }
-
 
 }
